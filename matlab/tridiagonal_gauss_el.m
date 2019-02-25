@@ -25,6 +25,7 @@ for i = 1:a
     aLower(i,1) = 0; % update A's lower diagonal
 end
 
+aMiddle(b,1) = -lLower(b-1,1) * aUpper(b-1,1) + aMiddle(b,1);
 uMiddle = aMiddle;
 
 end
