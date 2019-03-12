@@ -1,0 +1,23 @@
+function [y] = forwardsub(L,b)
+% uses forward substitution to solve Ly=b
+
+[n,~] = size(b); % dimensions of y and b
+y = zeros(n,1); % create y vector
+y(1,1) = b(1); % put in trivial solution for first y_1 value
+
+% solve the rest of the y's recursively
+for i = 2:n
+    % initate y_i
+    y(i,1) = b(i);
+    for j = i-1:-1:1
+        % forward substitution
+        y(i,1) = y(i,1) - L(i,j) * y(i-1,1);
+    end
+end
+end
+
+
+
+% [ L4,1 L4,2 L4,3 1 0 0 0 ] y = b
+% L4,1y_1 + L4,2y_2 + L4,3y_3 + y_4 = b_4
+% y_4 = b_4 - L4,3*y_3 - L4,2*y_2 - L4,1*y_1
