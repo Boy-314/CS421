@@ -16,6 +16,7 @@ Qhat = eye(m,n);
 R = A;
 
 % householder reflections
+% changed house(A) to hw5p6house(A)
 [A,p] = hw5p6house(A);
 
 % handle user input

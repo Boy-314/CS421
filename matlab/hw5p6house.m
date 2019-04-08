@@ -11,6 +11,7 @@ for k = 1:n
     % define u of length = m-k+1
     z = A(k:m,k);
     e1 = [1; zeros(m-k,1)];
+    % changed z+sign(z(1)) to z-sign(z(1))
     u = z-sign(z(1))*norm(z)*e1; u = u/norm(u);
     % update nonzero part of A by I-2uu^T
     A(k:m,k:n) = A(k:m,k:n)-2*u*(u'*A(k:m,k:n));
