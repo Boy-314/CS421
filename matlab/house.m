@@ -5,7 +5,6 @@ function [A,p] = house(A)
 % perform QR decomposition using Householder reflections
 % Transformations are of the form P_k = I - 2u_k(u_k^T), so
 % store effecting vector u_k in p(k) + A(k+1:m,k). Assume m > n.
-
 [m,n]=size(A); p = zeros(1,n);
 for k = 1:n
     % define u of length = m-k+1
