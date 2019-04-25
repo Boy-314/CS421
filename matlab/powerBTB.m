@@ -11,12 +11,12 @@ function [lambdak] = powerBTB(B,tau)
 BT = B';
 
 % create random vector v
-v = randn(1,n);
+v0 = randn(1,n);
 
 % set lambdas, and BTBvk/v_tilde
 lambdak = 0;
 lambdaprev = 0;
-v_tilde = BTy(BT,Bx(B,v));
+v_tilde = BTy(BT,Bx(B,v0));
 
 % power method
 k = 1;
@@ -25,7 +25,7 @@ while true
     vk = v_tilde/norm(v_tilde);
     
     % compute BTBvk with Bx and BTy
-    BTBvk = BTy(BT,Bx(B,v));
+    BTBvk = BTy(BT,Bx(B,vk));
     
     % compute lambda
     lambdak = vk'*BTBvk;
@@ -38,8 +38,9 @@ while true
         break
     end
     
-    % update lambdaprev and k
+    % update lambdaprev, v_tilde, and k
     lambdaprev = lambdak;
+    v_tilde = BTBvk;
     k = k+1;
 end
 
