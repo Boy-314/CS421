@@ -27,6 +27,6 @@ for k = 1:n-2
 end
 
 % compute B
-B = [diag(diag(A)) + [zeros(n-1,1), diag(diag(A,1)); zeros(1,n)]; zeros(1,n)];
+B = diag(diag(A)) + [zeros(n-1,1), diag(diag(A,1)); zeros(1,n)];
 end
 
