@@ -1,0 +1,30 @@
+function [x,res_norms] = hw8p2(A,b)
+% implements gradient descent to solve Ax=b for large A. takes input A and
+% b, and returns output x and a vector of all the computed residual norms
+
+% initialize tolerance tol, max iterations, and initial x guess
+[n,n] = size(A);
+tol = 10e-15;
+max_iter = 100000;
+x_k = randn(n,1);
+x_kplus1 = zeros(n,1);
+
+% loop
+k = 1;
+while k <= max_iter
+    r_k = b-A*x_k;
+    alpha_k = (r_k'*r_k)/(r_k'*A*r_k);
+    x_kplus1 = x_k+alpha_k*r_k;
+    
+    % quit if alpha_k is NOT positive
+    if alpha_k <= 0
+        error('alpha_k is not greater than 0');
+    end
+    
+    k = k+1;
+end
+
+x = x_kplus1;
+
+end
+

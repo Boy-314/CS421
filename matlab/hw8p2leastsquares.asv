@@ -1,0 +1,16 @@
+% create the matrix and semilogy graph
+N = 16;
+G = numgrid('S',N+2);
+A = delsq(G);
+b = ones(256,1);
+[x,res_norms] = hw8p2(A,b);
+semilogy(res_norms)
+
+% create points K,...,100 along the x-axis
+K = 20;
+t = K:100;
+
+% set b to be the res_norms vector at their respective indices
+b = res_norms(K:100);
+
+% call polyIn
