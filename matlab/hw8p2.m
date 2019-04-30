@@ -3,8 +3,8 @@ function [x,res_norms] = hw8p2(A,b)
 % b, and returns output x and a vector of all the computed residual norms
 
 % initialize tolerance tol, max iterations, and initial x guess
-tol = 10e-10;
-max_iter = 1000;
+tol = 10e-16;
+max_iter = 100;
 [~,n] = size(A);
 x_k = randn(n,1);
 
