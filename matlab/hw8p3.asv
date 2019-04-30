@@ -1,0 +1,24 @@
+function [x_0] = hw8p3(A,b)
+% implements the conjugate gradient method. includes a max iteration count
+% to make sure there are no infinite loops. tests to make sure alpha_k is
+% positive, terminates with an error if it is not
+
+[~,n] = size(A);
+
+% randomly generate initial guess x_0
+x_0 = randn(n,1);
+
+% set tolerance to be something around machine precision
+tol = 10e-15;
+
+% initialize r_0, delta_0, b_delta, k, and p_0
+r_0 = b-A*x_0;
+delta_k = r_0'*r_0;
+b_delta = b'*b;
+k = 0;
+p = r_0;
+
+% conjugate gradient loop
+while delta
+
+end

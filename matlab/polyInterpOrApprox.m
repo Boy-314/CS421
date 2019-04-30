@@ -31,7 +31,7 @@ for i = 1:( deg + 1)
 end
 
 % plot
-plot (tt ,p)
+%plot (tt ,p)
 hold on
-plot (t',b','ro','LineWidth',2)
+%plot (t',b','ro','LineWidth',2)
 end
