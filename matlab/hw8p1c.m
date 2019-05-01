@@ -26,3 +26,6 @@ hold on
 % compute via MATLAB eig
 lambda_2 = eig(full(A));
 plot(lambda_2,'ro')
+
+% put 2-norm condition number of A as the title of the plot
+title(sprintf('2-norm condition number of A: %e', eigvalues(N)/eigvalues(1)))
