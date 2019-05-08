@@ -8,14 +8,16 @@ A_green = double(A(:,:,2));
 A_blue = double(A(:,:,3));
 [m,n] = size(A_red);
 
-% part a
-[U_red, S_red, V_red] = svd(A_red,0);
-[U_green, S_green, V_green] = svd(A_green,0);
-[U_blue, S_blue, V_blue] = svd(A_blue,0);
+% part b
+tol = 1000;
 
 r_vals = [10 20 30 100];
 iter = 1;
 for k = r_vals
+    V0 = randn(n,k);
+    [U_red, S_red, V_red, ~, ~] = mystery3(A_red,V0,tol);
+    [U_green, S_green, V_green, ~, ~] = mystery3(A_green,V0,tol);
+    [U_blue, S_blue, V_blue, ~, ~] = mystery3(A_blue,V0,tol);
     nearestr_red = zeros(m,n);
     nearestr_green = zeros(m,n);
     nearestr_blue = zeros(m,n);
@@ -28,7 +30,7 @@ for k = r_vals
     recombine(:,:,2) = uint8(nearestr_green);
     recombine(:,:,3) = uint8(nearestr_blue);
     
-    figure(iter)
+    figure(iter + 1)
     iter = iter + 1;
     image(recombine)
 end
